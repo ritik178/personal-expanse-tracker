@@ -6,7 +6,35 @@ A backend application built with **Spring Boot** to manage personal expenses and
 
 ## 📁 Project Structure
 
-..
+```
+expense-tracker-app
+├── controller
+│   ├── CategoryController.java
+│   └── ExpanseController.java
+├── dto
+│   ├── CategoryDto.java
+│   └── ExpanseDto.java
+├── entity
+│   ├── Category.java
+│   └── Expanse.java
+├── exception
+│   ├── ErrorDetails.java
+│   ├── GlobalExceptionHandler.java
+│   └── ResourceNotFoundException.java
+├── mapper
+│   ├── CategoryMapper.java
+│   └── ExpanseMapper.java
+├── repository
+│   ├── CategoryRepository.java
+│   └── ExpanseRepository.java
+├── service
+│   ├── impl
+│   │   ├── CategoryServiceImpl.java
+│   │   └── ExpanseServiceImpl.java
+│   ├── CategoryService.java
+│   └── ExpanseService.java
+└── ExpanseTrackerAppApplication.java
+```
 
 ---
 
