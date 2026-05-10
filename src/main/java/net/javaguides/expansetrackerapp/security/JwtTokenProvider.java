@@ -15,19 +15,19 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    @Value("${app.jwt-secret}")
+
+    // BEFORE: @Value("${app.jwt-secret}")
+    @Value("${app.jwt-secret:mysupersecretkeymysupersecretkey123456}")
     private String jwtSecret;
 
-    @Value("${app.jwt-expiration-milliseconds}")
+    // BEFORE: @Value("${app.jwt-expiration-milliseconds}")
+    @Value("${app.jwt-expiration-milliseconds:86400000}")
     private long jwtExpiryDate;
 
-    // Generate JWT Token
+
     public String generateToken(Authentication authentication) {
-
         String username = authentication.getName();
-
         Date currentDate = new Date();
-
         Date expirationDate = new Date(currentDate.getTime() + jwtExpiryDate);
 
         return Jwts.builder()
@@ -39,38 +39,28 @@ public class JwtTokenProvider {
     }
 
     private Key key() {
-
         return Keys.hmacShaKeyFor(
                 jwtSecret.getBytes(StandardCharsets.UTF_8)
         );
     }
 
-    // Get username from JWT token
     public String getUsername(String token) {
-
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-
         return claims.getSubject();
     }
 
-    // Validate JWT token
     public boolean validateToken(String token) {
-
         try {
-
             Jwts.parserBuilder()
                     .setSigningKey(key())
                     .build()
                     .parseClaimsJws(token);
-
             return true;
-
         } catch (Exception ex) {
-
             return false;
         }
     }
