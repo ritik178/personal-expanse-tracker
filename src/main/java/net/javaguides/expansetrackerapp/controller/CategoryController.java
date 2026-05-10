@@ -36,7 +36,11 @@ public class CategoryController {
             responseCode = "201",
             description = "HTTPS STATUS 201 CREATED"
     )
+<<<<<<< HEAD
     @PostMapping("post")
+=======
+    @PostMapping("/post")
+>>>>>>> 7399c94 (backend ready)
     public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
 
         CategoryDto category = categoryService.createCategory(categoryDto);
@@ -106,6 +110,9 @@ public class CategoryController {
         return ResponseEntity.ok("Deleted Category with id " + categoryId);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7399c94 (backend ready)
 }
 

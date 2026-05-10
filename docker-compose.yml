@@ -1,0 +1,37 @@
+services:
+
+  app:
+    build: .
+
+    container_name: expense-tracker-app
+
+    restart: on-failure
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - mysql-db
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/expense_tracker_app
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  mysql-db:
+    image: mysql:8
+
+    container_name: mysql-db
+
+    ports:
+      - "3307:3306"
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: expense_tracker_app
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

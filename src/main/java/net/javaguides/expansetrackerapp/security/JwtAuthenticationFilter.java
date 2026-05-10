@@ -1,5 +1,9 @@
 package net.javaguides.expansetrackerapp.security;
 
+<<<<<<< HEAD
+=======
+import jakarta.annotation.Nonnull;
+>>>>>>> 7399c94 (backend ready)
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,7 +32,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     @Override
+<<<<<<< HEAD
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+=======
+    protected void doFilterInternal(@Nonnull HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+>>>>>>> 7399c94 (backend ready)
 
         //get jwt token from httpRequest
         String token = getTokenFromRequest(request);

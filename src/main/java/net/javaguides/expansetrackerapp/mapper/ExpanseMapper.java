@@ -22,6 +22,10 @@ public class ExpanseMapper {
     public static Expanse mapToExpanse(ExpanseDto expanseDto) {
         Category category = new Category();
         category.setId(expanseDto.categoryDto().id());
+<<<<<<< HEAD
+=======
+        category.setName(expanseDto.categoryDto().name());
+>>>>>>> 7399c94 (backend ready)
 
         Expanse expanse = new Expanse(
                 expanseDto.id(),
